@@ -1,1048 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CONTACT | Geerthana Vimalambikaipakan</title>
-
-
-<!-- =====================================================
-     ICON LIBRARIES
-     ===================================================== -->
-
-<link
-    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-    rel="stylesheet"
->
-
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
->
-
-
-<!-- =====================================================
-     MAIN STYLESHEET
-     ===================================================== -->
-
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="stylesheet.css">
-
-
-<!-- =====================================================
-     SHARED PAGE NAVIGATION
-     ===================================================== -->
-
 <script src="assets/js/page-navigation.js"></script>
-
-
-<!-- =====================================================
-     DIRECT PAGE PROTECTION
-     
-     If contact.html is opened directly, return to the
-     main 3D book controller at page 5.
-     ===================================================== -->
-
 <script>
-
+/* Always use index.html as the 3D book shell when this page is opened directly. */
 if (window.parent === window) {
-
-    window.location.replace("index.html#page-5");
-
+  window.location.replace('index.html#page-5');
 }
-
 </script>
 
-
-<!-- =====================================================
-     CONTACT PAGE OVERRIDE STYLES
-     ===================================================== -->
-
 <style>
-
-html,
-body {
-
-    width: 100%;
-    height: 100%;
-    margin: 0;
-
-    overflow: hidden;
-
-    background: #fff;
-
-}
-
-
-.page {
-
-    position: relative !important;
-
-    inset: auto !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    min-width: 0 !important;
-    min-height: 0 !important;
-
-    max-width: none !important;
-    max-height: none !important;
-
-    transform: none !important;
-
-    transition: none !important;
-
-    border-radius: 0 !important;
-
-    box-shadow: none !important;
-
-}
-
-
-.page-inner {
-
-    height: 100% !important;
-
-    max-height: 100% !important;
-
-    overflow-y: auto !important;
-
-    overflow-x: hidden !important;
-
-}
-
-
-/* =====================================================
-   STANDALONE NAVIGATION
-   ===================================================== */
-
-.standalone-nav {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 28px;
-
-    position: relative;
-
-    z-index: 50;
-
-    padding: 16px 20px;
-
-    margin: 0 auto 10px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.standalone-nav a {
-
-    color: #1b2b3a;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    font-size: 15px;
-
-    padding: 6px 4px;
-
-    border-bottom: 2px solid transparent;
-
-    transition: 0.2s;
-
-}
-
-
-.standalone-nav a:hover {
-
-    color: #00bfff;
-
-    border-bottom-color: #00bfff;
-
-}
-
-
-/*
-
-   When contact.html is loaded inside index.html,
-   hide the standalone navigation because index.html
-   already has the main portfolio navigation.
-
-*/
-
-.inside-book .standalone-nav {
-
-    display: none;
-
-}
-
-
-/* =====================================================
-   FORM STATUS MESSAGE
-   ===================================================== */
-
-#formStatus {
-
-    margin-top: 15px;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    min-height: 24px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =====================================================
-   DISABLED SEND BUTTON
-   ===================================================== */
-
-.send-message-btn:disabled {
-
-    opacity: 0.7;
-
-    cursor: not-allowed;
-
-}
-
-
-/* =====================================================
-   LOADING ICON
-   ===================================================== */
-
-.bx-spin {
-
-    animation: bx-spin 1s linear infinite;
-
-}
-
-
-@keyframes bx-spin {
-
-    from {
-
-        transform: rotate(0deg);
-
-    }
-
-    to {
-
-        transform: rotate(360deg);
-
-    }
-
-}
-
+html, body { width:100%; height:100%; margin:0; overflow:hidden; background:#fff; }
+.page { position:relative !important; inset:auto !important; width:100% !important; height:100% !important; min-width:0 !important; min-height:0 !important; max-width:none !important; max-height:none !important; transform:none !important; transition:none !important; border-radius:0 !important; box-shadow:none !important; }
+.page-inner { height:100% !important; max-height:100% !important; overflow-y:auto !important; overflow-x:hidden !important; }
 </style>
 
 </head>
-
-
 <body>
-
-
-<!-- =====================================================
-     STANDALONE NAVIGATION
-     
-     This is hidden automatically when the page is
-     displayed inside the 3D book.
-     ===================================================== -->
-
-<nav
-    class="standalone-nav"
-    aria-label="Portfolio navigation"
->
-
-    <a
-        href="index.html#page-0"
-        onclick="navigateToPage(0); return false;"
-    >
-        Home
-    </a>
-
-
-    <a
-        href="index.html#page-1"
-        onclick="navigateToPage(1); return false;"
-    >
-        About
-    </a>
-
-
-    <a
-        href="index.html#page-2"
-        onclick="navigateToPage(2); return false;"
-    >
-        Research
-    </a>
-
-
-    <a
-        href="index.html#page-3"
-        onclick="navigateToPage(3); return false;"
-    >
-        Projects
-    </a>
-
-
-    <a
-        href="index.html#page-4"
-        onclick="navigateToPage(4); return false;"
-    >
-        Skills
-    </a>
-
-
-    <a
-        href="index.html#page-5"
-        onclick="navigateToPage(5); return false;"
-    >
-        Contact
-    </a>
-
+<nav class="standalone-nav" aria-label="Portfolio navigation">
+  <a href="index.html#page-0" onclick="navigateToPage(0); return false;">Home</a>
+  <a href="index.html#page-1" onclick="navigateToPage(1); return false;">About</a>
+  <a href="index.html#page-2" onclick="navigateToPage(2); return false;">Research</a>
+  <a href="index.html#page-3" onclick="navigateToPage(3); return false;">Projects</a>
+  <a href="index.html#page-4" onclick="navigateToPage(4); return false;">Skills</a>
+  <a href="index.html#page-5" onclick="navigateToPage(5); return false;">Contact</a>
 </nav>
-
-
-<!-- =====================================================
-     CONTACT PAGE
-     ===================================================== -->
-
+<style>
+.standalone-nav{display:flex;justify-content:center;gap:28px;position:relative;z-index:50;padding:16px 20px;margin:0 auto 10px;flex-wrap:wrap;}
+.standalone-nav a{color:#1b2b3a;text-decoration:none;font-weight:600;font-size:15px;padding:6px 4px;border-bottom:2px solid transparent;transition:.2s;}
+.standalone-nav a:hover{color:#00bfff;border-bottom-color:#00bfff;}
+.inside-book .standalone-nav{display:none;}
+</style>
 <section class="page contact-page">
-
-
 <div class="page-inner contact-inner">
-
-
-<!-- =====================================================
-     PAGE LABEL
-     ===================================================== -->
-
 <span class="page-label">
 
-    06 — CONTACT
+                        06 — CONTACT
 
-</span>
-
-
+                    </span>
 <!-- =====================================================
-     CONTACT CONTENT LAYOUT
-     
-     LEFT  = Message Form
-     RIGHT = Contact Information
-     ===================================================== -->
-
+                 CONTACT CONTENT LAYOUT
+                 Message form is displayed on the LEFT.
+                 Contact details are displayed on the RIGHT.
+            ====================================================== -->
 <div class="contact-layout">
-
-
-<!-- =====================================================
-     CONTACT INFORMATION
-     ===================================================== -->
-
+<!-- =========================
+                 RIGHT: CONTACT INFORMATION
+                 ========================= -->
 <div class="contact-info">
-
-
-<h2>
-
-    Let's Connect
-
-</h2>
-
-
+<h2>Let's Connect</h2>
 <p class="contact-intro">
-
-    I would be happy to hear from you.
-    Feel free to get in touch with me for
-    research collaborations, academic opportunities,
-    projects, or any other professional inquiries.
-
-</p>
-
-
+                    I would be happy to hear from you. Feel free to
+                    get in touch with me for research collaborations,
+                    academic opportunities, projects, or any other
+                    professional inquiries.
+                </p>
 <div class="contact-details">
-
-
-<!-- =====================================================
-     EMAIL
-     ===================================================== -->
-
-<a href="mailto:vimalgeerthana@gmail.com">
-
-    <i class="bx bx-envelope"></i>
-
-    <span>
-
-        vimalgeerthana@gmail.com
-
-    </span>
-
+<!-- EMAIL -->
+<a href="mailto:your@email.com">
+<i class="bx bx-envelope"></i>
+<span>vimalgeerthana@gmail.com</span>
 </a>
-
-
-<!-- =====================================================
-     PHONE
-     ===================================================== -->
-
-<a href="tel:+94762625016">
-
-    <i class="bx bx-phone"></i>
-
-    <span>
-
-        +94 76 262 5016
-
-    </span>
-
+<!-- PHONE -->
+<a href="tel:+947XXXXXXXX">
+<i class="bx bx-phone"></i>
+<span>+94 76 262 5016</span>
 </a>
-
-
-<!-- =====================================================
-     LINKEDIN
-     ===================================================== -->
-
-<a
-    href="https://www.linkedin.com/in/geerthana-vimalambambikaipakan"
-    rel="noopener noreferrer"
-    target="_blank"
->
-
-    <i class="bx bxl-linkedin"></i>
-
-    <span>
-
-        LinkedIn
-
-    </span>
-
+<!-- LINKEDIN -->
+<a href="https://www.linkedin.com/in/geerthana-vimalambikaipakan" rel="noopener noreferrer" target="_blank">
+<i class="bx bxl-linkedin"></i>
+<span>LinkedIn </span>
 </a>
-
-
-<!-- =====================================================
-     GITHUB
-     ===================================================== -->
-
-<a
-    href="https://github.com/GeerthanaVimal"
-    rel="noopener noreferrer"
-    target="_blank"
->
-
-    <i class="bx bxl-github"></i>
-
-    <span>
-
-        GitHub
-
-    </span>
-
+<!-- GITHUB -->
+<a href="https://github.com/GeerthanaVimal" rel="noopener noreferrer" target="_blank">
+<i class="bx bxl-github"></i>
+<span>GitHub </span>
 </a>
-
-
 </div>
-
-
-<br>
-<br>
-<br>
-
-
+<br/>
+<br/>
+<br/>
 <!-- =====================================================
      RESEARCH & COLLABORATION
      ===================================================== -->
-
 <div class="research-collaboration">
-
-
-<h4>
-
-    Research &amp; Collaboration
-
-</h4>
-
-
+<h4>Research &amp; Collaboration</h4>
 <p>
-
-    Interested in research collaborations,
-    AI/ML projects, academic partnerships,
-    and innovative real-world applications?
-    Feel free to get in touch to discuss ideas
-    and opportunities.
-
-</p>
-
-
+        Interested in research collaborations, AI/ML projects,
+        academic partnerships, and innovative real-world applications?
+        Feel free to get in touch to discuss ideas and opportunities.
+    </p>
 <div class="collaboration-items">
-
-
 <div class="collaboration-item">
-
-    <span class="collaboration-icon">
-
-        🔬
-
-    </span>
-
-    <span>
-
-        Research Collaboration
-
-    </span>
-
+<span class="collaboration-icon">🔬</span>
+<span>Research Collaboration</span>
 </div>
-
-
 <div class="collaboration-item">
-
-    <span class="collaboration-icon">
-
-        🤖
-
-    </span>
-
-    <span>
-
-        AI &amp; ML Projects
-
-    </span>
-
+<span class="collaboration-icon">🤖</span>
+<span>AI &amp; ML Projects</span>
 </div>
-
-
 <div class="collaboration-item">
-
-    <span class="collaboration-icon">
-
-        🎓
-
-    </span>
-
-    <span>
-
-        Academic Opportunities
-
-    </span>
-
+<span class="collaboration-icon">🎓</span>
+<span>Academic Opportunities</span>
 </div>
-
-
 </div>
-
 </div>
-
-
 </div>
-
-
-<!-- =====================================================
-     CONTACT FORM
-     ===================================================== -->
-
+<!-- =========================
+                 RIGHT: MESSAGE FORM
+                 ========================= -->
 <div class="contact-form">
-
-
-<h2>
-
-    Send Me a Message
-
-</h2>
-
-
+<h2>Send Me a Message</h2>
 <p class="form-intro">
-
-    Have a question or want to work together?
-    Send me a message.
-
-</p>
-
-
-<!-- =====================================================
-     FORMSUBMIT AJAX FORM
-     
-     IMPORTANT:
-     There is NO action="" here.
-     
-     JavaScript sends the form to FormSubmit using
-     AJAX so the user stays inside the 3D book.
-     ===================================================== -->
-
-<form id="contactForm">
-
-
-<!-- =====================================================
-     EMAIL SUBJECT
-     ===================================================== -->
-
-<input
-    name="_subject"
-    type="hidden"
-    value="New Message from Geerthana's Portfolio"
->
-
-
-<!-- =====================================================
-     DISABLE FORMSUBMIT CAPTCHA
-     ===================================================== -->
-
-<input
-    name="_captcha"
-    type="hidden"
-    value="false"
->
-
-
-<!-- =====================================================
-     EMAIL TEMPLATE
-     ===================================================== -->
-
-<input
-    name="_template"
-    type="hidden"
-    value="table"
->
-
-
-<!-- =====================================================
-     NAME
-     ===================================================== -->
-
+                    Have a question or want to work together?
+                    Send me a message.
+                </p>
+<form action="https://formsubmit.co/vimalgeerthana@email.com" method="POST">
+<input name="_subject" type="hidden" value="New Message from Geerthana's Portfolio"/>
+<input name="_captcha" type="hidden" value="false"/>
 <div class="form-group">
-
-    <label for="name">
-
-        Name
-
-    </label>
-
-
-    <input
-        id="name"
-        name="name"
-        placeholder="Your Name"
-        required
-        type="text"
-    >
-
+<label for="name">
+                            Name
+                        </label>
+<input id="name" name="name" placeholder="Your Name" required="" type="text"/>
 </div>
-
-
-<!-- =====================================================
-     EMAIL
-     ===================================================== -->
-
 <div class="form-group">
-
-    <label for="email">
-
-        Email
-
-    </label>
-
-
-    <input
-        id="email"
-        name="email"
-        placeholder="Your Email"
-        required
-        type="email"
-    >
-
+<label for="email">
+                            Email
+                        </label>
+<input id="email" name="email" placeholder="Your Email" required="" type="email"/>
 </div>
-
-
-<!-- =====================================================
-     SUBJECT
-     ===================================================== -->
-
 <div class="form-group">
-
-    <label for="subject">
-
-        Subject
-
-    </label>
-
-
-    <input
-        id="subject"
-        name="subject"
-        placeholder="Subject"
-        required
-        type="text"
-    >
-
+<label for="subject">
+                            Subject
+                        </label>
+<input id="subject" name="subject" placeholder="Subject" required="" type="text"/>
 </div>
-
-
-<!-- =====================================================
-     MESSAGE
-     ===================================================== -->
-
 <div class="form-group">
-
-    <label for="message">
-
-        Message
-
-    </label>
-
-
-    <textarea
-        id="message"
-        name="message"
-        placeholder="Write your message here..."
-        required
-        rows="6"
-    ></textarea>
-
+<label for="message">
+                            Message
+                        </label>
+<textarea id="message" name="message" placeholder="Write your message here..." required="" rows="6"></textarea>
 </div>
+<button class="btn send-message-btn" type="submit">
+<i class="bx bx-send"></i>
 
+                        Send Message
 
-<!-- =====================================================
-     SEND BUTTON
-     ===================================================== -->
-
-<button
-    class="btn send-message-btn"
-    type="submit"
->
-
-    <i class="bx bx-send"></i>
-
-    Send Message
-
-</button>
-
-
-<!-- =====================================================
-     SUCCESS / ERROR MESSAGE
-     ===================================================== -->
-
-<p id="formStatus"></p>
-
-
+                    </button>
 </form>
-
-
 </div>
-
-
-</div>
-<!-- /.contact-layout -->
-
-
-<!-- =====================================================
-     BACK HOME BUTTON
-     ===================================================== -->
-
+</div> <!-- /.contact-layout -->
+<!-- BACK HOME -->
 <div class="contact-back">
+<button class="btn" onclick="navigateToPage(0)" type="button">
+<i class="bx bx-home"></i>
 
+                Back to Home
 
-<button
-    class="btn"
-    onclick="navigateToPage(0)"
-    type="button"
->
-
-    <i class="bx bx-home"></i>
-
-    Back to Home
-
-</button>
-
-
+            </button>
 </div>
-
-
 </div>
-<!-- /.page-inner -->
-
-
 </section>
-<!-- /.contact-page -->
-
-
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
 
 <script>
-
-
-// =====================================================
-// NAVIGATION FUNCTION
-// =====================================================
-
+// Navigation helper for both iframe mode (inside index.html) and direct mode.
 function navigateToPage(page) {
-
-
     page = Number(page);
-
-
-    // Validate page number
-
-    if (
-        !Number.isInteger(page) ||
-        page < 0 ||
-        page > 5
-    ) {
-
-        return;
-
-    }
-
-
-    // =================================================
-    // IF CONTACT PAGE IS INSIDE THE 3D BOOK
-    // =================================================
+    if (!Number.isInteger(page) || page < 0 || page > 5) return;
 
     if (window.parent !== window) {
-
-
-        // Send message to index.html
-
-        window.parent.postMessage(
-
-            {
-                type: "book-page",
-                page: page
-            },
-
-            "*"
-
-        );
-
-
+        // Tell index.html to move the 3D book to the requested page.
+        window.parent.postMessage({ type: "book-page", page: page }, "*");
+    } else {
+        // If this HTML file is opened directly, return to the book controller.
+        window.location.href = "index.html#page-" + page;
     }
-
-    // =================================================
-    // IF CONTACT PAGE IS OPENED DIRECTLY
-    // =================================================
-
-    else {
-
-
-        window.location.href =
-            "index.html#page-" + page;
-
-    }
-
 }
-
-
-// =====================================================
-// CONTACT FORM AJAX SUBMISSION
-// =====================================================
-
-const contactForm =
-    document.getElementById("contactForm");
-
-
-if (contactForm) {
-
-
-    contactForm.addEventListener(
-        "submit",
-        async function(e) {
-
-
-            // -----------------------------------------
-            // STOP NORMAL FORM SUBMISSION
-            // -----------------------------------------
-
-            e.preventDefault();
-
-
-            // -----------------------------------------
-            // GET FORM ELEMENTS
-            // -----------------------------------------
-
-            const form = this;
-
-            const status =
-                document.getElementById("formStatus");
-
-            const button =
-                form.querySelector(
-                    ".send-message-btn"
-                );
-
-
-            // -----------------------------------------
-            // DISABLE BUTTON
-            // -----------------------------------------
-
-            button.disabled = true;
-
-
-            // -----------------------------------------
-            // SHOW SENDING MESSAGE
-            // -----------------------------------------
-
-            button.innerHTML =
-                '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
-
-
-            status.textContent = "";
-
-            status.style.color = "";
-
-
-            // -----------------------------------------
-            // COLLECT FORM DATA
-            // -----------------------------------------
-
-            const formData =
-                new FormData(form);
-
-
-            try {
-
-
-                // =====================================
-                // SEND TO FORMSUBMIT AJAX ENDPOINT
-                // =====================================
-
-                const response = await fetch(
-
-                    "https://formsubmit.co/ajax/vimalgeerthana@gmail.com",
-
-                    {
-
-                        method: "POST",
-
-                        headers: {
-
-                            "Accept":
-                                "application/json"
-
-                        },
-
-                        body: formData
-
-                    }
-
-                );
-
-
-                // =====================================
-                // READ RESPONSE
-                // =====================================
-
-                const data =
-                    await response.json();
-
-
-                console.log(
-                    "FormSubmit response:",
-                    data
-                );
-
-
-                // =====================================
-                // SUCCESS
-                // =====================================
-
-                if (response.ok) {
-
-
-                    status.textContent =
-                        "✓ Message sent successfully! Thank you for contacting me.";
-
-
-                    status.style.color =
-                        "#00a86b";
-
-
-                    // Clear the form
-
-                    form.reset();
-
-
-                }
-
-
-                // =====================================
-                // ERROR
-                // =====================================
-
-                else {
-
-
-                    status.textContent =
-                        "Sorry, something went wrong. Please try again.";
-
-
-                    status.style.color =
-                        "#e53935";
-
-                }
-
-
-            }
-
-
-            catch (error) {
-
-
-                // =====================================
-                // CONNECTION ERROR
-                // =====================================
-
-                console.error(
-                    "Form submission error:",
-                    error
-                );
-
-
-                status.textContent =
-                    "Unable to send the message. Please try again.";
-
-
-                status.style.color =
-                    "#e53935";
-
-
-            }
-
-
-            finally {
-
-
-                // =====================================
-                // ENABLE BUTTON AGAIN
-                // =====================================
-
-                button.disabled = false;
-
-
-                button.innerHTML =
-                    '<i class="bx bx-send"></i> Send Message';
-
-
-            }
-
-
-        }
-
-    );
-
-}
-
-
 </script>
 
-
 </body>
-
 </html>
