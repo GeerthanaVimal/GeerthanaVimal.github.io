@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTACT | Geerthana Vimalambikaipakan</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="stylesheet.css">
+<script src="assets/js/page-navigation.js"></script>
+<script>
+/* Always use index.html as the 3D book shell when this page is opened directly. */
+if (window.parent === window) {
+  window.location.replace('index.html#page-5');
+}
+</script>
+
+<style>
+html, body { width:100%; height:100%; margin:0; overflow:hidden; background:#fff; }
+.page { position:relative !important; inset:auto !important; width:100% !important; height:100% !important; min-width:0 !important; min-height:0 !important; max-width:none !important; max-height:none !important; transform:none !important; transition:none !important; border-radius:0 !important; box-shadow:none !important; }
+.page-inner { height:100% !important; max-height:100% !important; overflow-y:auto !important; overflow-x:hidden !important; }
+</style>
+
+</head>
+<body>
+<nav class="standalone-nav" aria-label="Portfolio navigation">
+  <a href="index.html#page-0" onclick="navigateToPage(0); return false;">Home</a>
+  <a href="index.html#page-1" onclick="navigateToPage(1); return false;">About</a>
+  <a href="index.html#page-2" onclick="navigateToPage(2); return false;">Research</a>
+  <a href="index.html#page-3" onclick="navigateToPage(3); return false;">Projects</a>
+  <a href="index.html#page-4" onclick="navigateToPage(4); return false;">Skills</a>
+  <a href="index.html#page-5" onclick="navigateToPage(5); return false;">Contact</a>
+</nav>
+<style>
+.standalone-nav{display:flex;justify-content:center;gap:28px;position:relative;z-index:50;padding:16px 20px;margin:0 auto 10px;flex-wrap:wrap;}
+.standalone-nav a{color:#1b2b3a;text-decoration:none;font-weight:600;font-size:15px;padding:6px 4px;border-bottom:2px solid transparent;transition:.2s;}
+.standalone-nav a:hover{color:#00bfff;border-bottom-color:#00bfff;}
+.inside-book .standalone-nav{display:none;}
+</style>
+<section class="page contact-page">
+<div class="page-inner contact-inner">
+<span class="page-label">
+
+                        06 — CONTACT
+
+                    </span>
+<!-- =====================================================
+                 CONTACT CONTENT LAYOUT
+                 Message form is displayed on the LEFT.
+                 Contact details are displayed on the RIGHT.
+            ====================================================== -->
+<div class="contact-layout">
+<!-- =========================
+                 RIGHT: CONTACT INFORMATION
+                 ========================= -->
+<div class="contact-info">
+<h2>Let's Connect</h2>
+<p class="contact-intro">
+                    I would be happy to hear from you. Feel free to
+                    get in touch with me for research collaborations,
+                    academic opportunities, projects, or any other
+                    professional inquiries.
+                </p>
+<div class="contact-details">
+<!-- EMAIL -->
+<a href="mailto:your@email.com">
+<i class="bx bx-envelope"></i>
+<span>vimalgeerthana@gmail.com</span>
+</a>
+<!-- PHONE -->
+<a href="tel:+947XXXXXXXX">
+<i class="bx bx-phone"></i>
+<span>+94 76 262 5016</span>
+</a>
+<!-- LINKEDIN -->
+<a href="https://www.linkedin.com/in/geerthana-vimalambikaipakan" rel="noopener noreferrer" target="_blank">
+<i class="bx bxl-linkedin"></i>
+<span>LinkedIn </span>
+</a>
+<!-- GITHUB -->
+<a href="https://github.com/GeerthanaVimal" rel="noopener noreferrer" target="_blank">
+<i class="bx bxl-github"></i>
+<span>GitHub </span>
+</a>
+</div>
+<br/>
+<br/>
+<br/>
+<!-- =====================================================
+     RESEARCH & COLLABORATION
+     ===================================================== -->
+<div class="research-collaboration">
+<h4>Research &amp; Collaboration</h4>
+<p>
+        Interested in research collaborations, AI/ML projects,
+        academic partnerships, and innovative real-world applications?
+        Feel free to get in touch to discuss ideas and opportunities.
+    </p>
+<div class="collaboration-items">
+<div class="collaboration-item">
+<span class="collaboration-icon">🔬</span>
+<span>Research Collaboration</span>
+</div>
+<div class="collaboration-item">
+<span class="collaboration-icon">🤖</span>
+<span>AI &amp; ML Projects</span>
+</div>
+<div class="collaboration-item">
+<span class="collaboration-icon">🎓</span>
+<span>Academic Opportunities</span>
+</div>
+</div>
+</div>
+</div>
+<!-- =========================
+                 RIGHT: MESSAGE FORM
+                 ========================= -->
+<div class="contact-form">
+<h2>Send Me a Message</h2>
+<p class="form-intro">
+                    Have a question or want to work together?
+                    Send me a message.
+                </p>
+<form action="https://formsubmit.co/vimalgeerthana@email.com" method="POST">
+<input name="_subject" type="hidden" value="New Message from Geerthana's Portfolio"/>
+<input name="_captcha" type="hidden" value="false"/>
+<div class="form-group">
+<label for="name">
+                            Name
+                        </label>
+<input id="name" name="name" placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">
+                            Email
+                        </label>
+<input id="email" name="email" placeholder="Your Email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="subject">
+                            Subject
+                        </label>
+<input id="subject" name="subject" placeholder="Subject" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="message">
+                            Message
+                        </label>
+<textarea id="message" name="message" placeholder="Write your message here..." required="" rows="6"></textarea>
+</div>
+<button class="btn send-message-btn" type="submit">
+<i class="bx bx-send"></i>
+
+                        Send Message
+
+                    </button>
+</form>
+</div>
+</div> <!-- /.contact-layout -->
+<!-- BACK HOME -->
+<div class="contact-back">
+<button class="btn" onclick="navigateToPage(0)" type="button">
+<i class="bx bx-home"></i>
+
+                Back to Home
+
+            </button>
+</div>
+</div>
+</section>
+
+<script>
+// Navigation helper for both iframe mode (inside index.html) and direct mode.
+function navigateToPage(page) {
+    page = Number(page);
+    if (!Number.isInteger(page) || page < 0 || page > 5) return;
+
+    if (window.parent !== window) {
+        // Tell index.html to move the 3D book to the requested page.
+        window.parent.postMessage({ type: "book-page", page: page }, "*");
+    } else {
+        // If this HTML file is opened directly, return to the book controller.
+        window.location.href = "index.html#page-" + page;
+    }
+}
+</script>
+
+</body>
+</html>

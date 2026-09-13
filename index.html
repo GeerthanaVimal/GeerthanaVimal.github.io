@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Geerthana Vimalambikaipakan - Lecturer, Researcher and AI/ML Professional">
+<title>Geerthana Vimalambikaipakan | Portfolio</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="stylesheet.css">
+<style>
+/* =========================================================
+   INDEX BOOK CONTROLLER
+   Each content page remains a separate HTML file and is
+   displayed inside one shared 3D book.
+   ========================================================= */
+.book-page {
+    position:absolute; inset:0; width:100%; height:100%;
+    transform-origin:left center; transform-style:preserve-3d;
+    backface-visibility:hidden; overflow:hidden;
+    transition:transform 1.1s cubic-bezier(.645,.045,.355,1);
+    background:#fff; border-radius:5px 20px 20px 5px;
+    box-shadow:0 30px 80px rgba(0,0,0,.58), inset -12px 0 25px rgba(0,0,0,.035);
+}
+.book-page.flipped { transform:rotateY(-180deg); }
+.book-page iframe { width:100%; height:100%; border:0; display:block; background:#fff; }
+.book-page::after { content:''; position:absolute; inset:0; pointer-events:none; z-index:2; background:linear-gradient(to right, transparent 94%, rgba(0,0,0,.10)); }
+</style>
+</head>
+<body>
+<div class="background"><div class="glow glow-one"></div><div class="glow glow-two"></div></div>
+<header class="header">
+<a href="#" class="logo" id="logo">GV</a>
+<nav class="navbar"><a href="index.html#page-0" data-page="0">Home</a>
+<a href="index.html#page-1" data-page="1">About</a>
+<a href="index.html#page-2" data-page="2">Research</a>
+<a href="index.html#page-3" data-page="3">Projects</a>
+<a href="index.html#page-4" data-page="4">Skills</a>
+<a href="index.html#page-5" data-page="5">Contact</a></nav>
+</header>
+<main class="book-area">
+<div class="book" id="book">
+<section class="book-page page-0" data-page="0"><iframe src="home.html" title="Home" loading="eager"></iframe></section>
+<section class="book-page page-1" data-page="1"><iframe src="about.html" title="About" loading="eager"></iframe></section>
+<section class="book-page page-2" data-page="2"><iframe src="research.html" title="Research" loading="eager"></iframe></section>
+<section class="book-page page-3" data-page="3"><iframe src="projects.html" title="Projects" loading="eager"></iframe></section>
+<section class="book-page page-4" data-page="4"><iframe src="skills.html" title="Skills" loading="eager"></iframe></section>
+<section class="book-page page-5" data-page="5"><iframe src="contact.html" title="Contact" loading="eager"></iframe></section>
+</div>
+<div class="book-controls">
+<button type="button" id="prevBtn" aria-label="Previous page"><i class="bx bx-chevron-left"></i></button>
+<span id="pageCounter">HOME</span>
+<button type="button" id="nextBtn" aria-label="Next page"><i class="bx bx-chevron-right"></i></button>
+</div>
+</main>
+<script src="main-original.js"></script>
+</body>
+</html>

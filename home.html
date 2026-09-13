@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME | Geerthana Vimalambikaipakan</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="stylesheet.css">
+
+<style>
+html, body { width:100%; height:100%; margin:0; overflow:hidden; background:#fff; }
+.page { position:relative !important; inset:auto !important; width:100% !important; height:100% !important; min-width:0 !important; min-height:0 !important; max-width:none !important; max-height:none !important; transform:none !important; transition:none !important; border-radius:0 !important; box-shadow:none !important; }
+.page-inner { height:100% !important; max-height:100% !important; overflow-y:auto !important; overflow-x:hidden !important; }
+</style>
+
+<link rel="stylesheet" href="assets/css/icons.css">
+<script src="assets/js/page-navigation.js"></script>
+<script>
+/* Always use index.html as the 3D book shell when this page is opened directly. */
+if (window.parent === window) {
+  window.location.replace('index.html#page-0');
+}
+</script>
+</head>
+<body>
+<nav class="standalone-nav" aria-label="Portfolio navigation">
+  <a href="index.html#page-0" onclick="navigateToPage(0); return false;">Home</a>
+  <a href="index.html#page-1" onclick="navigateToPage(1); return false;">About</a>
+  <a href="index.html#page-2" onclick="navigateToPage(2); return false;">Research</a>
+  <a href="index.html#page-3" onclick="navigateToPage(3); return false;">Projects</a>
+  <a href="index.html#page-4" onclick="navigateToPage(4); return false;">Skills</a>
+  <a href="index.html#page-5" onclick="navigateToPage(5); return false;">Contact</a>
+</nav>
+<style>
+.standalone-nav{display:flex;justify-content:center;gap:28px;position:relative;z-index:50;padding:16px 20px;margin:0 auto 10px;flex-wrap:wrap;}
+.standalone-nav a{color:#1b2b3a;text-decoration:none;font-weight:600;font-size:15px;padding:6px 4px;border-bottom:2px solid transparent;transition:.2s;}
+.standalone-nav a:hover{color:#00bfff;border-bottom-color:#00bfff;}
+.inside-book .standalone-nav{display:none;}
+</style>
+<section class="page home-page">
+<div class="page-inner">
+<!-- PROFILE PHOTO -->
+<div class="profile-image">
+<img alt="Geerthana Vimalambikaipakan" src="assets/img/dp.jpg"/>
+</div>
+<!-- NAME -->
+<h1>
+
+                        Geerthana
+
+                        <span>
+                            Vimalambikaipakan
+                        </span>
+</h1>
+<!-- TITLE -->
+<h2>
+
+                        Lecturer &amp; Researcher
+
+                    </h2>
+<!-- INTRODUCTION -->
+<p class="home-description">
+
+                        Passionate about Artificial Intelligence,
+                        Machine Learning, Research and developing
+                        intelligent solutions for real-world problems.
+
+                    </p>
+<!-- SOCIAL MEDIA -->
+<div class="social-icons">
+<!-- Google Scholar -->
+<a aria-label="Google Scholar" href="https://scholar.google.com/citations?user=1ha7ImIAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">
+<i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+</a>
+<!-- LinkedIn -->
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/geerthana-vimalambikaipakan" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+</a>
+<!-- ResearchGate -->
+<a aria-label="ResearchGate" href="https://www.researchgate.net/profile/Geerthana-Vimalambikaipakan" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-researchgate" aria-hidden="true"></i>
+</a>
+<!-- ORCID -->
+<a aria-label="ORCID" href="https://orcid.org/0009-0009-8566-8010" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-orcid" aria-hidden="true"></i>
+</a>
+<!-- X / Twitter -->
+<a aria-label="Twitter" href="https://x.com/Geerthana_13" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+</a>
+</div>
+<!-- BUTTONS -->
+<div class="home-buttons">
+<!-- CV -->
+<a class="btn" download="" href="assets/cv/Geerthana_CV.pdf">
+<i class="bx bx-download"></i>
+
+                            Download CV
+
+                        </a>
+<!-- CONTACT -->
+<button class="btn outline-btn" onclick="navigateToPage(5)" type="button">
+
+                            Contact Me
+
+                        </button>
+</div>
+</div>
+</section>
+
+<script>
+// Navigation helper for both iframe mode (inside index.html) and direct mode.
+function navigateToPage(page) {
+    page = Number(page);
+    if (!Number.isInteger(page) || page < 0 || page > 5) return;
+
+    if (window.parent !== window) {
+        // Tell index.html to move the 3D book to the requested page.
+        window.parent.postMessage({ type: "book-page", page: page }, "*");
+    } else {
+        // If this HTML file is opened directly, return to the book controller.
+        window.location.href = "index.html#page-" + page;
+    }
+}
+</script>
+
+</body>
+</html>
