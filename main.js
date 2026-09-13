@@ -1,391 +1,69 @@
 /* =========================================================
-   BOOK PAGE NAVIGATION + CONTENT SCROLL
+   CONNECTED BOOK NAVIGATION
+   index.html is the main controller.
+   Home/About/Research/Projects/Skills/Contact stay as
+   separate HTML files, so each can be edited independently.
    ========================================================= */
-
-const pages = document.querySelectorAll(".page");
-const navLinks = document.querySelectorAll(".navbar a");
-
-const pageNames = [
-    "HOME",
-    "ABOUT",
-    "RESEARCH",
-    "PROJECTS",
-    "SKILLS",
-    "CONTACT"
-];
-
+const pages = Array.from(document.querySelectorAll('.book-page'));
+const navLinks = Array.from(document.querySelectorAll('.navbar a'));
+const pageNames = ['HOME','ABOUT','RESEARCH','PROJECTS','SKILLS','CONTACT'];
+const counter = document.getElementById('pageCounter');
 let currentPage = 0;
+let busy = false;
 
-const pageCounter = document.getElementById("pageCounter");
-
-
-/* =========================================================
-   FIND CURRENT PAGE SCROLL AREA
-   ========================================================= */
-
-function getCurrentScrollArea() {
-
-    const currentPageElement = pages[currentPage];
-
-    if (!currentPageElement) {
-        return null;
-    }
-
-    return currentPageElement.querySelector(".page-inner");
-
+function resetFrameScroll(index) {
+  const frame = pages[index]?.querySelector('iframe');
+  try { frame?.contentWindow?.scrollTo(0,0); } catch(e) {}
+  try { frame?.contentDocument?.querySelector('.page-inner')?.scrollTo(0,0); } catch(e) {}
 }
 
-
-/* =========================================================
-   RESET SCROLL TO TOP
-   ========================================================= */
-
-function resetPageScroll(page) {
-
-    if (!page) {
-        return;
-    }
-
-    const scrollArea = page.querySelector(".page-inner");
-
-    if (scrollArea) {
-
-        scrollArea.scrollTop = 0;
-
-    }
-
+function updateUI() {
+  navLinks.forEach((link,i)=>link.classList.toggle('active', i===currentPage));
+  counter.textContent = pageNames[currentPage];
 }
 
-
-/* =========================================================
-   SCROLL CURRENT PAGE
-   ========================================================= */
-
-function scrollCurrentPage(direction) {
-
-    const scrollArea = getCurrentScrollArea();
-
-    if (!scrollArea) {
-        return;
-    }
-
-    const scrollAmount = 450;
-
-
-    /* Scroll toward bottom */
-
-    if (direction === "down") {
-
-        scrollArea.scrollBy({
-
-            top: scrollAmount,
-
-            left: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
-
-
-    /* Scroll toward top */
-
-    if (direction === "up") {
-
-        scrollArea.scrollBy({
-
-            top: -scrollAmount,
-
-            left: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
-
+function goToPage(target) {
+  target = Number(target);
+  if (!Number.isInteger(target) || target<0 || target>=pages.length || target===currentPage || busy) return;
+  busy = true;
+  if (target > currentPage) {
+    for (let i=currentPage; i<target; i++) pages[i].classList.add('flipped');
+  } else {
+    for (let i=target; i<currentPage; i++) pages[i].classList.remove('flipped');
+  }
+  currentPage=target;
+  resetFrameScroll(currentPage);
+  updateUI();
+  setTimeout(()=>busy=false, 1150);
 }
 
-
-/* =========================================================
-   INITIALIZE BOOK
-   ========================================================= */
-
-function initializeBook() {
-
-    pages.forEach(function(page, index) {
-
-        page.style.zIndex = pages.length - index;
-
-        resetPageScroll(page);
-
-    });
-
-    updateNavigation();
-
-    updateCounter();
-
-}
-
-
-/* =========================================================
-   UPDATE NAVIGATION
-   ========================================================= */
-
-function updateNavigation() {
-
-    navLinks.forEach(function(link, index) {
-
-        link.classList.remove("active");
-
-        if (index === currentPage) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   NEXT BOOK PAGE
-   ========================================================= */
-
-function nextPage() {
-
-    if (currentPage >= pages.length - 1) {
-
-        return;
-
-    }
-
-    pages[currentPage].classList.add("flipped");
-
-    currentPage++;
-
-    resetPageScroll(pages[currentPage]);
-
-    updateNavigation();
-
-    updateCounter();
-
-}
-
-
-/* =========================================================
-   PREVIOUS BOOK PAGE
-   ========================================================= */
-
-function previousPage() {
-
-    if (currentPage <= 0) {
-
-        return;
-
-    }
-
-    currentPage--;
-
-    pages[currentPage].classList.remove("flipped");
-
-    resetPageScroll(pages[currentPage]);
-
-    updateNavigation();
-
-    updateCounter();
-
-}
-
-
-/* =========================================================
-   GO DIRECTLY TO PAGE
-   ========================================================= */
-
-function goToPage(pageNumber) {
-
-    if (
-        pageNumber < 0 ||
-        pageNumber >= pages.length
-    ) {
-
-        return;
-
-    }
-
-
-    pages.forEach(function(page, index) {
-
-        if (index < pageNumber) {
-
-            page.classList.add("flipped");
-
-        }
-
-        else {
-
-            page.classList.remove("flipped");
-
-        }
-
-    });
-
-
-    currentPage = pageNumber;
-
-    resetPageScroll(pages[currentPage]);
-
-    updateNavigation();
-
-    updateCounter();
-
-}
-
-
-/* =========================================================
-   UPDATE PAGE COUNTER
-   ========================================================= */
-
-function updateCounter() {
-
-    if (!pageCounter) {
-
-        return;
-
-    }
-
-    pageCounter.textContent =
-        pageNames[currentPage];
-
-}
-
-
-/* =========================================================
-   NAVIGATION CLICK
-   ========================================================= */
-
-navLinks.forEach(function(link, index) {
-
-    link.addEventListener(
-        "click",
-        function(event) {
-
-            event.preventDefault();
-
-            goToPage(index);
-
-        }
-    );
-
+function nextPage(){ if(currentPage<pages.length-1) goToPage(currentPage+1); }
+function previousPage(){ if(currentPage>0) goToPage(currentPage-1); }
+
+navLinks.forEach((link,i)=>link.addEventListener('click',e=>{e.preventDefault();goToPage(i);}));
+document.getElementById('logo').addEventListener('click',e=>{e.preventDefault();goToPage(0);});
+document.getElementById('nextBtn').addEventListener('click',nextPage);
+document.getElementById('prevBtn').addEventListener('click',previousPage);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') nextPage();
+  if(e.key==='ArrowLeft') previousPage();
 });
 
+let touchX=0,touchY=0;
+document.addEventListener('touchstart',e=>{
+  touchX=e.changedTouches[0].screenX; touchY=e.changedTouches[0].screenY;
+},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=touchX-e.changedTouches[0].screenX;
+  const dy=touchY-e.changedTouches[0].screenY;
+  if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)) dx>0?nextPage():previousPage();
+},{passive:true});
 
-/* =========================================================
-   KEYBOARD BOOK NAVIGATION
-   ========================================================= */
+// Allow content-page buttons such as Contact Me / Back Home to control the parent book.
+window.addEventListener('message',e=>{
+  if(e.data && e.data.type==='book-page') goToPage(e.data.page);
+});
 
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "ArrowRight") {
-
-            nextPage();
-
-        }
-
-        if (event.key === "ArrowLeft") {
-
-            previousPage();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   TOUCH / SWIPE BOOK NAVIGATION
-   ========================================================= */
-
-let touchStartX = 0;
-let touchStartY = 0;
-
-
-document.addEventListener(
-    "touchstart",
-    function(event) {
-
-        touchStartX =
-            event.changedTouches[0].screenX;
-
-        touchStartY =
-            event.changedTouches[0].screenY;
-
-    },
-    { passive: true }
-);
-
-
-document.addEventListener(
-    "touchend",
-    function(event) {
-
-        const touchEndX =
-            event.changedTouches[0].screenX;
-
-        const touchEndY =
-            event.changedTouches[0].screenY;
-
-
-        const differenceX =
-            touchStartX - touchEndX;
-
-        const differenceY =
-            touchStartY - touchEndY;
-
-
-        /*
-         * Vertical movement should scroll content.
-         * Only a stronger horizontal movement turns pages.
-         */
-
-        if (
-            Math.abs(differenceX) <=
-            Math.abs(differenceY)
-        ) {
-
-            return;
-
-        }
-
-
-        /* Swipe left → next page */
-
-        if (differenceX > 50) {
-
-            nextPage();
-
-        }
-
-
-        /* Swipe right → previous page */
-
-        if (differenceX < -50) {
-
-            previousPage();
-
-        }
-
-    },
-    { passive: true }
-);
-
-
-/* =========================================================
-   START BOOK
-   ========================================================= */
-
-initializeBook();
+pages.forEach((p,i)=>{p.style.zIndex=pages.length-i;});
+updateUI();

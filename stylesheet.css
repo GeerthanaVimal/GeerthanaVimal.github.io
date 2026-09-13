@@ -150,18 +150,27 @@ textarea {
 
 .book-area {
     width: 100%;
-    height: calc(100vh - 125px);
-    padding: 5px 2vw 15px;
+    height: calc(100vh - 75px);
+    padding: 8px 2vw 12px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     perspective: 3000px;
+}
+
+/* Keep the navigation controls UNDER the book. */
+.book-controls {
+    flex: 0 0 46px;
+    width: min(90vw, 1400px);
+    margin: 0;
 }
 
 .book {
     position: relative;
     width: 90vw;
-    height: 78vh;
+    height: min(78vh, calc(100% - 58px));
     max-width: 1400px;
     max-height: 800px;
     min-width: 700px;
@@ -969,8 +978,10 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    margin-top: -5px;
+    gap: 24px;
+    margin: 0;
+    height: 46px;
+    flex: 0 0 46px;
 }
 
 .book-controls button {
@@ -995,7 +1006,7 @@ textarea {
 }
 
 #pageCounter {
-    min-width: 100px;
+    min-width: 110px;
     color: #fff;
     text-align: center;
     font-size: 10px;
@@ -1010,7 +1021,7 @@ textarea {
 @media (min-width: 1500px) {
     .book {
         width: 90vw;
-        height: 78vh;
+        height: min(78vh, calc(100% - 58px));
         max-width: 1450px;
         max-height: 820px;
     }
@@ -1267,6 +1278,33 @@ textarea {
 
     .book-controls {
         gap: 20px;
+    }
+
+    .book-controls button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    .book-area {
+        height: calc(100vh - 75px);
+        padding: 6px 10px 10px;
+        gap: 8px;
+    }
+
+    .book {
+        width: 96vw;
+        min-width: 0;
+        height: calc(100% - 54px);
+        min-height: 0;
+    }
+
+    .book-controls {
+        width: 96vw;
+        height: 40px;
+        flex-basis: 40px;
+        gap: 16px;
     }
 
     .book-controls button {
