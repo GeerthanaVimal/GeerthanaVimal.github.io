@@ -1,6 +1,6 @@
 # Geerthana Vimalambikaipakan | Personal Portfolio
 
-A clean, white, profile-style portfolio website for a lecturer, researcher and AI/ML professional.
+A clean, white, profile-style portfolio website 
 
 **Live site:** https://geerthanavimal.github.io/
 
@@ -77,8 +77,6 @@ An internet connection is needed for fonts, icons and skill logos to load.
 
    Then visit http://localhost:8000.
 
-## Customise
-
 ### Content
 - About, Research, Projects, Contact: edit the matching `.html` file.
 - Profile card, profile links and tab bar: the same block appears in **every** HTML file, so change it in all five.
@@ -121,18 +119,6 @@ The form action in `contact.html` points to `https://formsubmit.co/<email>`. The
 
 To update: edit the files, commit and push.
 
-## Troubleshooting
-
-| Problem | Fix |
-|---------|-----|
-| Images missing | Check that file names and the `assets/` folder match |
-| Skill logo shows initials | The CDN logo wasn't found; add your own PNG in `assets/img/skills/` |
-| Contact form does nothing | Confirm the FormSubmit activation email |
-| Changes not visible after pushing | Wait a minute and hard-refresh (Ctrl+F5) |
-
-## Browser support
-
-Latest versions of Chrome, Edge, Firefox and Safari, on desktop and mobile.
 
 ## Credits and licence
 
