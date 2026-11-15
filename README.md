@@ -121,5 +121,5 @@ To update: edit the files, commit and push.
 
 
 ## Author
-Geerthana Vimalambikaipakan
-Email:vimalgeerthana@gmail.com
+Geerthana Vimalambikaipakan, 
+Email: vimalgeerthana@gmail.com
