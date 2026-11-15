@@ -120,6 +120,6 @@ The form action in `contact.html` points to `https://formsubmit.co/<email>`. The
 To update: edit the files, commit and push.
 
 
-## Credits and licence
-
-Logos and trademarks belong to their respective owners and are used only to indicate tools the author works with. Website code and content are the author's own; reuse of text, images and publications requires permission.
+## Author
+Geerthana Vimalambikaipakan
+Email:vimalgeerthana@gmail.com
