@@ -68,7 +68,7 @@ img { max-width: 100%; display: block; }
   display: grid; place-items: center;
 }
 .avatar span { font-family: 'Playfair Display', serif; font-size: 44px; color: var(--accent-text); }
-.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-fit: cover; }
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: var(--accent-soft); }
 
 .profile-card h1 {
   font-family: 'Playfair Display', serif;
